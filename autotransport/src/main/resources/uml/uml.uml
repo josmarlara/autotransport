@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_orMdwKCKEeq-jvSGcjlQtw" name="uml">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_o0_S8KCKEeq-jvSGcjlQtw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_MMS3YKCOEeq-jvSGcjlQtw" name="autotransport">
+      <packagedElement xmi:type="uml:Package" xmi:id="_MO0m8KCOEeq-jvSGcjlQtw" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_MO2cIKCOEeq-jvSGcjlQtw" name="tutosoftware">
+          <packagedElement xmi:type="uml:Package" xmi:id="_MO3qQKCOEeq-jvSGcjlQtw" name="autotransport">
+            <packagedElement xmi:type="uml:Package" xmi:id="_MO6tkKCOEeq-jvSGcjlQtw" name="util">
+              <packagedElement xmi:type="uml:Class" xmi:id="_MO-X8KCOEeq-jvSGcjlQtw" name="DataConnect" visibility="public">
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MSsaUKCOEeq-jvSGcjlQtw" name="getConnection" specification="_MO_mEKCOEeq-jvSGcjlQtw">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    try {&#xD;
+        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);&#xD;
+        Connection con = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/transportdb?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=America/Mexico_City&amp;verifyServerCertificate=false&amp;useSSL=false&amp;requireSSL=false&quot;, &quot;admin&quot;, &quot;adminlara&quot;);&#xD;
+        return con;&#xD;
+    } catch (Exception ex) {&#xD;
+        System.out.println(&quot;Database.getConnection() Error -->&quot; + ex.getMessage());&#xD;
+        return null;&#xD;
+    }&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MS0WIKCOEeq-jvSGcjlQtw" name="close" specification="_MSwrwKCOEeq-jvSGcjlQtw">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    try {&#xD;
+        con.close();&#xD;
+    } catch (Exception ex) {&#xD;
+    }&#xD;
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_MO_mEKCOEeq-jvSGcjlQtw" name="getConnection" visibility="public" isStatic="true" method="_MSsaUKCOEeq-jvSGcjlQtw">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_MSp-EKCOEeq-jvSGcjlQtw" type="_MPEekKCOEeq-jvSGcjlQtw" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_MSwrwKCOEeq-jvSGcjlQtw" name="close" visibility="public" isStatic="true" method="_MS0WIKCOEeq-jvSGcjlQtw">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_MSzIAKCOEeq-jvSGcjlQtw" name="con" type="_MPEekKCOEeq-jvSGcjlQtw"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_owW4UKCPEeq-jvSGcjlQtw" name="getConnection"/>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_iac1AKElEeqvn5rttjPvbg" name="close"/>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_GE0KQKEnEeqvn5rttjPvbg" name="domain">
+              <packagedElement xmi:type="uml:Class" xmi:id="_GFhU4KEnEeqvn5rttjPvbg" name="Licencia" visibility="public">
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GQKeoKEnEeqvn5rttjPvbg" name="idLicencia" visibility="private" type="_GFnbgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GQTokKEnEeqvn5rttjPvbg" name="nombre" visibility="private" type="_GFnbgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GQcLcKEnEeqvn5rttjPvbg" name="apellidoPaterno" visibility="private" type="_GFnbgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GQhrAKEnEeqvn5rttjPvbg" name="apellidoMaterno" visibility="private" type="_GFnbgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GQ--AKEnEeqvn5rttjPvbg" name="fechaObtencion" visibility="private" type="_GQmjgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GREdkKEnEeqvn5rttjPvbg" name="fechaExpiracion" visibility="private" type="_GQmjgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_GRKkMKEnEeqvn5rttjPvbg" name="tipoLetra" visibility="private" type="_GFnbgKEnEeqvn5rttjPvbg" isUnique="false"/>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_HF4wQKEoEeqvn5rttjPvbg" name="idLicencia" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_9-6A0KErEeqvn5rttjPvbg" name="nombre" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_JCGogKEsEeqvn5rttjPvbg" name="apellidoPaterno" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_QmEJMKEsEeqvn5rttjPvbg" name="apellidoMaterno" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_c2G-gKEsEeqvn5rttjPvbg" name="fechaObtencion" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_8CbQkKEsEeqvn5rttjPvbg" name="fechaExpiracion" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:type="uml:Property" xmi:id="_JzUGMKEwEeqvn5rttjPvbg" name="tipoLetra" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedAttribute>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GRc4EKEnEeqvn5rttjPvbg" name="getIdLicencia" specification="_GRQDwKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return idLicencia;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GRnQIKEnEeqvn5rttjPvbg" name="setIdLicencia" specification="_GRhwkKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.idLicencia = idLicencia;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GRwaEKEnEeqvn5rttjPvbg" name="getNombre" specification="_GRq6gKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return nombre;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSARsKEnEeqvn5rttjPvbg" name="setNombre" specification="_GR4V4KEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.nombre = nombre;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSL34KEnEeqvn5rttjPvbg" name="getApellidoPaterno" specification="_GSFxQKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return apellidoPaterno;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSVB0KEnEeqvn5rttjPvbg" name="setApellidoPaterno" specification="_GSQJUKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.apellidoPaterno = apellidoPaterno;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSdksKEnEeqvn5rttjPvbg" name="getApellidoMaterno" specification="_GSYsMKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return apellidoMaterno;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSqZAKEnEeqvn5rttjPvbg" name="setApellidoMaterno" specification="_GSmHkKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.apellidoMaterno = apellidoMaterno;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GS0KAKEnEeqvn5rttjPvbg" name="getFechaObtencion" specification="_GSuDYKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return fechaObtencion;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GS9T8KEnEeqvn5rttjPvbg" name="setFechaObtencion" specification="_GS7ewKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.fechaObtencion = fechaObtencion;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GS-iEKEnEeqvn5rttjPvbg" name="getFechaExpiracion" specification="_GS97AKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return fechaExpiracion;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GTAXQKEnEeqvn5rttjPvbg" name="setFechaExpiracion" specification="_GS_JIKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.fechaExpiracion = fechaExpiracion;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GTBlYaEnEeqvn5rttjPvbg" name="getTipoLetra" specification="_GTA-UKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    return tipoLetra;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GTDakKEnEeqvn5rttjPvbg" name="setTipoLetra" specification="_GTCMcKEnEeqvn5rttjPvbg">
+                  <language>JAVA</language>
+                  <body>&#xD;
+    this.tipoLetra = tipoLetra;&#xD;
+</body>
+                </ownedBehavior>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GRQDwKEnEeqvn5rttjPvbg" name="getIdLicencia" visibility="public" method="_GRc4EKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GRTHEKEnEeqvn5rttjPvbg" type="_GFnbgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GRhwkKEnEeqvn5rttjPvbg" name="setIdLicencia" visibility="public" method="_GRnQIKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GRkz4KEnEeqvn5rttjPvbg" name="idLicencia" type="_GFnbgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GRq6gKEnEeqvn5rttjPvbg" name="getNombre" visibility="public" method="_GRwaEKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GRtWwKEnEeqvn5rttjPvbg" type="_GFnbgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GR4V4KEnEeqvn5rttjPvbg" name="setNombre" visibility="public" method="_GSARsKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GR8nUKEnEeqvn5rttjPvbg" name="nombre" type="_GFnbgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GSFxQKEnEeqvn5rttjPvbg" name="getApellidoPaterno" visibility="public" method="_GSL34KEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GSJboKEnEeqvn5rttjPvbg" type="_GFnbgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GSQJUKEnEeqvn5rttjPvbg" name="setApellidoPaterno" visibility="public" method="_GSVB0KEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GSTMoKEnEeqvn5rttjPvbg" name="apellidoPaterno" type="_GFnbgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GSYsMKEnEeqvn5rttjPvbg" name="getApellidoMaterno" visibility="public" method="_GSdksKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GSbIcKEnEeqvn5rttjPvbg" type="_GFnbgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GSmHkKEnEeqvn5rttjPvbg" name="setApellidoMaterno" visibility="public" method="_GSqZAKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GSn8wKEnEeqvn5rttjPvbg" name="apellidoMaterno" type="_GFnbgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GSuDYKEnEeqvn5rttjPvbg" name="getFechaObtencion" visibility="public" method="_GS0KAKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GSxGsKEnEeqvn5rttjPvbg" type="_GQmjgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GS7ewKEnEeqvn5rttjPvbg" name="setFechaObtencion" visibility="public" method="_GS9T8KEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GS8s4KEnEeqvn5rttjPvbg" name="fechaObtencion" type="_GQmjgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GS97AKEnEeqvn5rttjPvbg" name="getFechaExpiracion" visibility="public" method="_GS-iEKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GS97AaEnEeqvn5rttjPvbg" type="_GQmjgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GS_JIKEnEeqvn5rttjPvbg" name="setFechaExpiracion" visibility="public" method="_GTAXQKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GS_wMKEnEeqvn5rttjPvbg" name="fechaExpiracion" type="_GQmjgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GTA-UKEnEeqvn5rttjPvbg" name="getTipoLetra" visibility="public" method="_GTBlYaEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GTBlYKEnEeqvn5rttjPvbg" type="_GFnbgKEnEeqvn5rttjPvbg" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GTCMcKEnEeqvn5rttjPvbg" name="setTipoLetra" visibility="public" method="_GTDakKEnEeqvn5rttjPvbg">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GTCzgKEnEeqvn5rttjPvbg" name="tipoLetra" type="_GFnbgKEnEeqvn5rttjPvbg"/>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_NgGBUKEtEeqvn5rttjPvbg" name="getIdLicencia">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_b56mkKEtEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_d6ld0KEtEeqvn5rttjPvbg" name="setIdLicencia">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_9yLhgKEtEeqvn5rttjPvbg" name="idLicencia">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_NiKBYKEuEeqvn5rttjPvbg" name="getNombre">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_c_bAoKEuEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_4FdZ0KEuEeqvn5rttjPvbg" name="setNombre">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="__7h-MKEuEeqvn5rttjPvbg" name="nombre">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_JygDUKEvEeqvn5rttjPvbg" name="getApellidoPaterno">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_RC2rgKEvEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_YktTYKEvEeqvn5rttjPvbg" name="setApellidoPaterno">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_jfrMIKEvEeqvn5rttjPvbg" name="apellidoPaterno">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_occoIKEvEeqvn5rttjPvbg" name="getApellidoMaterno">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_v7GLAKEvEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_yZhVQKEvEeqvn5rttjPvbg" name="setApellidoMaterno">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_7AkqoKEvEeqvn5rttjPvbg" name="apellidoMaterno">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_gAGRcKEwEeqvn5rttjPvbg" name="getFechaObtencion">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_6Xc_sKEwEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_rBHH0KEwEeqvn5rttjPvbg" name="setFechaObtencion">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_07MyYKEwEeqvn5rttjPvbg" name="fechaObtencion">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_GP2KAKExEeqvn5rttjPvbg" name="getFechaExpiracion">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_O5drMKExEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_TnuxIKExEeqvn5rttjPvbg" name="setFechaExpiracion">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_baVx0KExEeqvn5rttjPvbg" name="fechaExpiracion">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_k1Yv8KExEeqvn5rttjPvbg" name="getTipoLetra">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_sWvokKExEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_0j8TgKExEeqvn5rttjPvbg" name="getTipoLetra">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_7KPSEKExEeqvn5rttjPvbg" direction="return">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:type="uml:Operation" xmi:id="_9mUS8KExEeqvn5rttjPvbg" name="setTipoLetra">
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_IS048KEyEeqvn5rttjPvbg" name="tipoLetra">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <nestedClassifier xmi:type="uml:Interface" xmi:id="_FsTYEKExEeqvn5rttjPvbg" name="Interface53"/>
+                <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_0DiVIKExEeqvn5rttjPvbg" name="Enumeration57"/>
+                <nestedClassifier xmi:type="uml:Class" xmi:id="_9U2IcKExEeqvn5rttjPvbg" name="Class59"/>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_MPBbQKCOEeq-jvSGcjlQtw" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_MPDQcKCOEeq-jvSGcjlQtw" name="java">
+        <packagedElement xmi:type="uml:Package" xmi:id="_MPD3gKCOEeq-jvSGcjlQtw" name="sql">
+          <packagedElement xmi:type="uml:Class" xmi:id="_MPEekKCOEeq-jvSGcjlQtw" name="Connection"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_GQmjgKEnEeqvn5rttjPvbg" name="Date"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_GFmNYKEnEeqvn5rttjPvbg" name="lang">
+          <packagedElement xmi:type="uml:Class" xmi:id="_GFnbgKEnEeqvn5rttjPvbg" name="String"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MNw3AKCOEeq-jvSGcjlQtw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MNysMKCOEeq-jvSGcjlQtw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MOsrIKCOEeq-jvSGcjlQtw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MOt5QKCOEeq-jvSGcjlQtw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MOvucKCOEeq-jvSGcjlQtw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MOw8kKCOEeq-jvSGcjlQtw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_MSm6wKCOEeq-jvSGcjlQtw" name="java.sql.Connection" base_Classifier="_MPEekKCOEeq-jvSGcjlQtw"/>
+  <PapyrusJava:External xmi:id="_GQE_EKEnEeqvn5rttjPvbg" name="java.lang.String" base_Classifier="_GFnbgKEnEeqvn5rttjPvbg"/>
+  <PapyrusJava:External xmi:id="_GQ9I0KEnEeqvn5rttjPvbg" name="java.sql.Date" base_Classifier="_GQmjgKEnEeqvn5rttjPvbg"/>
+</xmi:XMI>
